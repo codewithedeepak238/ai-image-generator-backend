@@ -20,6 +20,10 @@ app.use(express.json({ limit: '50mb'}));
 app.use('/api/dalle', router);
 app.use('/api/all-posts', postrouter);
 
+app.get("/", (req, res)=>{
+    return res.send("You are on Homepage!!")
+})
+
 const startServer = async ()=>{
     connectDB(process.env.MONGODB_URL);
     try{
